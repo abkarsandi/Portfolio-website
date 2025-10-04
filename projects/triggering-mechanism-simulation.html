@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Triggering Mechanism – Ahmet Buğra KARSANDI</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+  <!-- Header -->
+  <header class="container my-4 p-4">
+    <h1 class="h3 fw-bold mb-0 text-center">Triggering Mechanism (Rocket Ignition)</h1>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="main-nav container">
+    <ul class="nav justify-content-center gap-2 gap-md-3 py-2 py-md-3 rounded-4 shadow-sm bg-white">
+      <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="../projects.html">Projects</a></li>
+      <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="../contact.html">Contact</a></li>
+      <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="../about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main -->
+  <main class="container-80 my-5 flex-grow-1">
+    <!-- Hero: use the projects thumbnail as cover -->
+    <section class="mb-5 text-center">
+      <img
+        src="../pics/project-thumbnails/triggering-mechanism.PNG"
+        alt="Triggering mechanism cover"
+        class="img-fluid rounded-4 shadow-sm mb-4"
+        loading="eager"
+      >
+      <p class="text-secondary lead mb-0">
+        I modeled a spring–mass slider with dry friction to size a needle impact for a rocket trigger. The governing
+        second-order ODE was solved by splitting into the homogeneous part and a particular solution via
+        <em>variation of parameters</em>, then integrated in time with an embedded RK4 scheme to capture the
+        needle’s contact event and momentum at impact.
+      </p>
+    </section>
+
+    <!-- Free-Body Diagram -->
+    <section class="mb-5 text-start">
+      <h2 class="h4 fw-bold mb-3">Free-Body Diagram & Model</h2>
+      <p>
+        The contact mode was determined from the friction geometry (single resultant beyond the slider length), giving a
+        consistent dry-friction direction during pre-impact motion. From moment/force balances, normal reactions were
+        expressed in terms of inertial terms; substituting into the translational equation yielded a nonlinear, forced
+        second-order ODE in the slider coordinate.
+      </p>
+      <img
+        src="../pics/project-media/triggering-mechanism/fbd.png"
+        alt="Free-body diagram of the triggering mechanism"
+        class="img-fluid rounded-4 shadow-sm"
+        loading="lazy"
+      >
+    </section>
+
+    <!-- Solution Method -->
+    <section class="mb-5 text-start">
+      <h2 class="h4 fw-bold mb-3">Solution Method</h2>
+      <p>
+        The ODE was rearranged as a nonhomogeneous equation. I solved the homogeneous part from the characteristic
+        roots, then obtained the particular solution by variation of parameters. Initial conditions were applied to get
+        the full analytical expression. For time histories and the contact event, I advanced the state with RK4 (with an
+        RK5 error estimate), detected the crossing when the slider displacement reached the battery location, and
+        recorded the velocity at that instant.
+    </section>
+
+    <!-- Impact Computation -->
+    <section class="mb-5 text-start">
+      <h2 class="h4 fw-bold mb-3">Impact Detection & Momentum Check</h2>
+      <p>
+        Impact occurs when the computed displacement first equals the collision position. The corresponding velocity
+        provides the needle momentum <em>p = m v</em> that must exceed the catalog requirement to trigger the battery.
+        I explored design variables (spring pre-compression, friction coefficient) to satisfy the momentum threshold. :contentReference[oaicite:3]{index=3}
+      </p>
+
+      <!-- Impact figures: position & velocity -->
+      <figure class="mb-4">
+        <img
+          src="../pics/project-media/triggering-mechanism/impact-position.png"
+          alt="Time history highlighting collision position"
+          class="img-fluid rounded-4 shadow-sm"
+          loading="lazy"
+        >
+        <figcaption class="mt-2 small text-secondary">
+          Time trace of displacement with collision position marked; the first crossing defines the impact instant.
+        </figcaption>
+      </figure>
+
+      <figure class="mb-2">
+        <img
+          src="../pics/project-media/triggering-mechanism/impact-velocity.png"
+          alt="Velocity at impact used to compute momentum"
+          class="img-fluid rounded-4 shadow-sm"
+          loading="lazy"
+        >
+        <figcaption class="mt-2 small text-secondary">
+          Velocity at the impact instant gives needle momentum; compared to the required minimum to ensure triggering.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- Lessons Learned -->
+    <section class="mb-5 text-start">
+      <h2 class="h4 fw-bold mb-3">Lessons Learned</h2>
+      <ul>
+        <li>RK4 with event detection is reliable for impact timing and momentum evaluation in piecewise-smooth systems.</li>
+        <li>Increasing spring compression raises impact momentum efficiently; reducing friction helps but has diminishing returns.</li>
+        <li>Analytical dynamics (Lagrange) simplifies EOM derivation when nonlinearity from friction is bounded and modeled consistently.</li>
+      </ul>
+    </section>
+
+    <div class="text-center">
+      <a href="../projects.html" class="btn btn-outline-primary rounded-3 px-4">← Back to Projects</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-auto">
+    <div class="container my-4 p-4">
+      <div class="footer-card bg-white text-center py-3 px-4 rounded-4 shadow-sm">
+        <small class="text-secondary">Made by Ahmet Buğra, October 2025.</small>
+      </div>
+    </div>
+  </footer>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

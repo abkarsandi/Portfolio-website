@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fixed-Wing UAV – Ahmet Buğra KARSANDI</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+  <!-- Header -->
+  <header class="container my-4 p-4">
+    <h1 class="h3 fw-bold mb-0 text-center">Fixed-Wing UAV</h1>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="main-nav container">
+    <ul class="nav justify-content-center gap-2 gap-md-3 py-2 py-md-3 rounded-4 shadow-sm bg-white">
+      <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="../projects.html">Projects</a></li>
+      <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="../contact.html">Contact</a></li>
+      <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="../about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main -->
+  <main class="container-80 my-5 flex-grow-1">
+    <!-- Hero uses the projects thumbnail -->
+    <section class="mb-5 text-center">
+      <img
+        src="../pics/project-thumbnails/fixed-wing-uav.jpg"
+        alt="Fixed-wing UAV airframe during fabrication"
+        width="1280" height="720"
+        class="img-fluid rounded-4 shadow-sm mb-4"
+        loading="eager"
+      >
+      <p class="text-secondary lead mb-0">
+        As mechanics-team coordinator, I led sizing and structural decisions, organized sponsor support for foam cutting and 3D printing,
+        and contributed hands-on to fabrication—especially cutting carbon-fiber sheets for load-bearing components and integrating
+        electronics inside the foam core.
+      </p>
+    </section>
+
+    <!-- What I Did -->
+    <section class="mb-5 text-start">
+      <h2 class="h4 fw-bold mb-3">What I Did</h2>
+      <p>
+        I coordinated the mechanics sub-team and set up the modeling workflow in <strong>Excel</strong> and <strong>XFLR5</strong> to size the wing,
+        estimate lift/drag, and check stability margins. Beyond analysis and documentation, I sourced and secured
+        sponsor support for <strong>CNC foam cutting</strong> (fuselage/wing cores) and <strong>3D printing</strong> of fixtures and internal mounts.
+        On the shop floor I took part in manufacturing—cutting <strong>carbon-fiber sheets</strong> for spars and linkages, finishing parts,
+        and fitting electronics inside the foam structure to validate clearances and weight balance.
+      </p>
+    </section>
+
+    <!-- Modeling & Sizing -->
+    <section class="mb-5 text-start">
+      <h2 class="h4 fw-bold mb-3">Modeling & Sizing (Excel + XFLR5)</h2>
+      <p>
+        Our early iterations used Excel to sweep wing loading and power loading, and XFLR5 to compare airfoils, lift curve slope,
+        and stability derivatives. This let us lock the planform and structural requirements before fabrication,
+        and it guided the placement of carbon reinforcement and internal mounts.
+      </p>
+    </section>
+
+    <!-- Manufacturing & Sponsorships -->
+    <section class="mb-5 text-start">
+      <h2 class="h4 fw-bold mb-3">Manufacturing & Sponsorships</h2>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <img
+            src="../pics/project-media/fixed-wing-uav/fw-cutting-carbon.jpg"
+            alt="Cutting carbon-fiber sheets for load-bearing parts"
+            width="1280" height="720"
+            class="img-fluid rounded-4 shadow-sm"
+            loading="lazy"
+          >
+          <p class="small text-secondary mt-2 mb-0">
+            Cutting foam using a 2-axis CNC wire cutting machine
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../pics/project-media/fixed-wing-uav/fw-foam-core-electronics.jpg"
+            alt="Sponsored 3D printed fixtures and internal mounts"
+            width="1280" height="720"
+            class="img-fluid rounded-4 shadow-sm"
+            loading="lazy"
+          >
+          <p class="small text-secondary mt-2 mb-0">
+            Carbon-fiber cutting processes using in-house equipment
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Integration & Assembly -->
+    <section class="mb-5 text-start">
+      <h2 class="h4 fw-bold mb-3">Integration & Assembly</h2>
+      <div class="row g-3">
+        <div class="col-12">
+          <img
+            src="../pics/project-media/fixed-wing-uav/fw-3d-printing.jpg"
+            alt="Electronics integrated in foam core"
+            width="1280" height="720"
+            class="img-fluid rounded-4 shadow-sm"
+            loading="lazy"
+          >
+        </div>
+      </div>
+      <p class="mt-3">
+        I worked on embedding electronics into the foam core and validating harness routes, CG, and serviceability.
+        This also fed back into XFLR5 mass-distribution checks and the decision on carbon reinforcement placement.
+      </p>
+    </section>
+
+    <!-- Lessons Learned -->
+    <section class="mb-5 text-start">
+      <h2 class="h4 fw-bold mb-3">Lessons Learned</h2>
+      <ul>
+        <li>Foam is not the best material for load-bearing structures.</li>
+        <li>Sponsorships for foam cutting and 3D printing can compress lead times dramatically.</li>
+        <li>Cutting CF in-house is hard and requires specialized equipment.</li>
+      </ul>
+    </section>
+
+    <div class="text-center">
+      <a href="../projects.html" class="btn btn-outline-primary rounded-3 px-4">← Back to Projects</a>
+    </div>
+  </main>
+
+  <!-- Footer (your preferred version) -->
+  <footer class="mt-auto">
+    <div class="container my-4 p-4">
+      <div class="footer-card bg-white text-center py-3 px-4 rounded-4 shadow-sm">
+        <small class="text-secondary">Made by Ahmet Buğra, October 2025.</small>
+      </div>
+    </div>
+  </footer>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

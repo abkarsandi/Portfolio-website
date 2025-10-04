@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Graduation Project – Ahmet Buğra KARSANDI</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+  <header class="container my-4 p-4">
+    <h1 class="h3 fw-bold mb-0 text-center">Graduation Project</h1>
+  </header>
+
+  <nav class="main-nav container">
+    <ul class="nav justify-content-center gap-2 gap-md-3 py-2 py-md-3 rounded-4 shadow-sm bg-white">
+      <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="../projects.html">Projects</a></li>
+      <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="../contact.html">Contact</a></li>
+      <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="../about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main class="container-80 my-5 flex-grow-1">
+    <!-- Hero (thumbnail as cover) -->
+    <section class="mb-5 text-center">
+      <img
+        src="../pics/project-thumbnails/graduation-project.png"
+        alt="Graduation project cover: assembly with stepper, gears and panel"
+        class="img-fluid rounded-4 shadow-sm mb-4"
+        loading="eager"
+      >
+      <p class="text-secondary lead mb-0">
+        Technical owner (paired with a project manager). I designed the open-loop control system and wrote
+        all embedded code, selected the controller/driver/sensors, and designed the complete power-transmission:
+        gear train, shafts, bearing housings, and assembly. Aluminum parts were machined; polymer components were
+        3D-printed for cost reduction.
+      </p>
+    </section>
+
+    <!-- My role (what I did) -->
+    <section class="mb-5 text-start">
+      <h2 class="h4 fw-bold mb-3">What I Did</h2>
+      <ul class="mb-0">
+        <li>Chose the control stack (Arduino MEGA, HY-DIV268N-5A stepper driver, NEMA-34 motor).</li>
+        <li>Integrated sensors: VS1838B IR receiver (remote control) and HC-SR04 ultrasonic distance sensor.</li>
+        <li>Wrote all firmware: input handling, motion routines, tuning (current, microstepping, acceleration) to reduce vibration.</li>
+        <li>Designed the mechanical transmission: gear ratio & module selection, torque checks, center distances, backlash control.</li>
+        <li>Modeled shafts and housings with integrated bearing seats; prepared drawings for machining.</li>
+        <li>Implemented a modified keyway approach for printed gears to improve torque transfer.</li>
+      </ul>
+    </section>
+
+    <!-- Power transmission I designed -->
+    <section class="mb-5 text-start">
+      <h2 class="h4 fw-bold mb-3">Power Transmission I Designed</h2>
+      <p>
+        I calculated the gear train to meet torque and resolution targets, set shaft spacing for proper meshing,
+        and designed bearing-seated housings to keep alignment under load. Printed gears used a revised keyway form
+        to reduce slip on square hubs.
+      </p>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <img
+            src="../pics/project-media/graduation-project/gp-gear-triangle.jpg"
+            alt="Opposing gears and triangular bracket used for alignment and load path"
+            class="img-fluid rounded-4 shadow-sm"
+            loading="lazy"
+          >
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../pics/project-media/graduation-project/gp-gear-slicer.jpg"
+            alt="Slicer preview of the printed gears showing the custom keyway approach"
+            class="img-fluid rounded-4 shadow-sm"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Control system I built -->
+    <section class="mb-5 text-start">
+      <h2 class="h4 fw-bold mb-3">Control System I Built</h2>
+      <div class="row g-3 align-items-center">
+        <div class="col-lg-6">
+          <p class="mb-0">
+            The control system was designed as an open-loop stepper motor architecture for simplicity and cost efficiency. I selected an Arduino MEGA as the controller and paired it with a HY-DIV268N-5A driver to operate a NEMA-34 stepper motor. The wiring included an IR receiver (VS1838B) that allowed the system to be remotely controlled, as well as an HC-SR04 ultrasonic sensor for distance feedback and safety margins.
+          </p>
+          <br>
+          <p>  
+             I carefully tuned the driver’s current limit, microstepping configuration, and acceleration profile to reduce vibration and prevent missed steps under load. The embedded code handled remote commands, sensor readings, and motion routines, ensuring smooth actuation across the transmission. While the system delivered reliable open-loop control, it also highlighted the limitations of using Arduino boards for more advanced tasks such as closed-loop asynchronous functions. This served as both a functioning prototype and a valuable learning platform for control integration in mechatronic systems.
+          </p>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-center">
+          <img
+            src="../pics/project-media/graduation-project/gp-arduino-wiring.jpg"
+            alt="Arduino MEGA with stepper driver, VS1838B IR receiver, and HC-SR04 wiring"
+            width="720" height="1280"
+            class="img-fluid rounded-4 shadow-sm"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Manufactured & printed parts -->
+    <section class="mb-5 text-start">
+      <h2 class="h4 fw-bold mb-3">Manufactured & Printed Parts</h2>
+      <p>
+        Aluminum shafts and housings were machined from drawings; polymer gears and fixtures were 3D-printed to
+        speed iteration and validate clearances and backlash before final machining.
+      </p>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <img
+            src="../pics/project-media/graduation-project/gp-printed-gears.jpg"
+            alt="3D-printed gears after orientation fix"
+            class="img-fluid rounded-4 shadow-sm"
+            loading="lazy"
+          >
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../pics/project-media/graduation-project/gp-machined-parts.jpg"
+            alt="Machined aluminum shafts and bearing housings on dimensioned drawings"
+            class="img-fluid rounded-4 shadow-sm"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Lessons learned -->
+    <section class="mb-5 text-start">
+      <h2 class="h4 fw-bold mb-3">Lessons Learned</h2>
+      <ul>
+        <li>Additive parts need larger contact areas to reduce backlash and deformation.</li>
+        <li>Arduino-class boards are limiting for closed-loop control due to weak async/task support.</li>
+      </ul>
+    </section>
+
+    <div class="text-center">
+      <a href="../projects.html" class="btn btn-outline-primary rounded-3 px-4">← Back to Projects</a>
+    </div>
+  </main>
+
+  <footer class="mt-auto">
+    <div class="container my-4 p-4">
+      <div class="footer-card bg-white text-center py-3 px-4 rounded-4 shadow-sm">
+        <small class="text-secondary">Made by Ahmet Buğra, October 2025.</small>
+      </div>
+    </div>
+  </footer>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

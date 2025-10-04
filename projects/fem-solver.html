@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FEM Solver – Ahmet Buğra KARSANDI</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <style>
+    /* keeps square figure full-width while preserving content */
+    .square-figure img{ width:100%; height:100%; object-fit:contain; background:#fff; }
+  </style>
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+  <!-- Header -->
+  <header class="container my-4 p-4">
+    <h1 class="h3 fw-bold mb-0 text-center">FEM Solver (Plate with Circular Hole)</h1>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="main-nav container">
+    <ul class="nav justify-content-center gap-2 gap-md-3 py-2 py-md-3 rounded-4 shadow-sm bg-white">
+      <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="../projects.html">Projects</a></li>
+      <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="../contact.html">Contact</a></li>
+      <li class="nav-item"><a class="nav-link px-3 fw-semibold" href="../about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main -->
+  <main class="container-80 my-5 flex-grow-1">
+    <!-- Hero uses the card thumbnail -->
+    <section class="mb-5 text-center">
+      <img
+        src="../pics/project-thumbnails/fem-solver.PNG"
+        alt="FEM solver cover"
+        class="img-fluid rounded-4 shadow-sm mb-4"
+        loading="eager"
+      >
+      <p class="text-secondary lead mb-0">
+        I implemented a 2D finite element solver for a plate with a central hole using 4-node quadrilateral (Quad4)
+        elements. The solver assembles global stiffness, applies boundary conditions, solves nodal displacements, then
+        computes reactions, strains/stresses, and von Mises fields.
+      </p>
+    </section>
+
+    <!-- What I Built -->
+    <section class="mb-5 text-start">
+      <h2 class="h4 fw-bold mb-3">What I Built</h2>
+      <p>
+        The code reads mesh and loads, forms element stiffness via Gauss integration, partitions the system into fixed
+        and free DOFs, solves for unknowns, and post-processes stress/strain. Results include displacement vectors,
+        deformed mesh visualization, and von Mises maps/contours.
+      </p>
+    </section>
+
+    <!-- Formulation (with mesh directly under it) -->
+    <section class="mb-4 text-start">
+      <h2 class="h4 fw-bold mb-3">Formulation</h2>
+      <p class="mb-3">
+        Each Quad4 element uses bilinear shape functions. The Jacobian maps natural to global coordinates to construct
+        the strain–displacement matrix <em>B</em>, and the element stiffness is integrated with a 2×2 Gauss rule under
+        plane-stress assumptions. The constitutive matrix <em>C</em> is defined by <em>E</em> and <em>ν</em>.
+      </p>
+      <img
+        src="../pics/project-media/fem-solver/fem-mesh.png"
+        alt="Finite element mesh and node/element numbering"
+        class="img-fluid rounded-4 shadow-sm"
+        loading="lazy"
+      >
+    </section>
+
+
+    <!-- Von Mises Stresses & Contour -->
+    <section class="mb-5 text-start">
+      <h2 class="h4 fw-bold mb-3">Von Mises Stresses</h2>
+      <img
+        src="../pics/project-media/fem-solver/stress-plots.png"
+        alt="Von Mises stress distribution and contour map"
+        class="img-fluid rounded-4 shadow-sm"
+        loading="lazy"
+      >
+      <p class="mt-3 mb-0">
+        The discrete element-wise von Mises map (left) and a smoothed contour plot (right) highlight stress
+        concentration lobes at the horizontal tangency points of the hole—consistent with classical solutions.
+      </p>
+    </section>
+
+    <!-- Deformation & Displacements (wide square, full width) -->
+    <section class="mb-5 text-start">
+      <h2 class="h4 fw-bold mb-3">Deformation & Displacements</h2>
+      <img
+        src="../pics/project-media/fem-solver/deformation.png"
+        alt="Displacement vectors and scaled deformed mesh"
+        class="img-fluid rounded-4 shadow-sm"
+        loading="lazy"
+      >
+      <p class="mt-3 mb-0">
+        Left: displacement vectors over the original grid. Right: scaled deformed mesh overlaid on the original to
+        visualize mode and boundary effects around the hole.
+      </p>
+    </section>
+
+    <!-- Lessons Learned -->
+    <section class="mb-5 text-start">
+      <h2 class="h4 fw-bold mb-3">Lessons Learned</h2>
+      <ul>
+        <li>Mesh quality and correct Jacobians strongly affect stress accuracy near the hole boundary.</li>
+        <li>Partitioning and applying boundary conditions cleanly simplifies verification of reactions.</li>
+        <li>Exporting intermediate fields (B, C, element Ks) speeds debugging and validation.</li>
+      </ul>
+    </section>
+
+    <div class="text-center">
+      <a href="../projects.html" class="btn btn-outline-primary rounded-3 px-4">← Back to Projects</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-auto">
+    <div class="container my-4 p-4">
+      <div class="footer-card bg-white text-center py-3 px-4 rounded-4 shadow-sm">
+        <small class="text-secondary">Made by Ahmet Buğra, October 2025.</small>
+      </div>
+    </div>
+  </footer>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
